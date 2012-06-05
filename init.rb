@@ -12,4 +12,4 @@ Redmine::Plugin.register :redmine_airbrake_server do
   requires_redmine_plugin :project_settings_hook_plugin, :version_or_higher => '0.0.1'
 end
 
-config.gem 'hpricot'
+#config.gem 'hpricot'

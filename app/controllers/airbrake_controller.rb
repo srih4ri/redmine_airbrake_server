@@ -29,7 +29,7 @@ class AirbrakeController < ApplicationController
       update_existing_issue
     end
     
-    render :layout => false
+    render :index , :layout => false
   end
   
   private
@@ -150,19 +150,19 @@ class AirbrakeController < ApplicationController
     @occurrences_field = IssueCustomField.find_or_initialize_by_name('# Occurrences')
     if @occurrences_field.new_record?
       @occurrences_field.attributes = {:field_format => 'int', :default_value => '1', :is_filter => true}
-      @occurrences_field.save(false)
+      @occurrences_field.save(:validate=> false)
     end
     
     @environment_field = IssueCustomField.find_or_initialize_by_name('Environment')
     if @environment_field.new_record?
       @environment_field.attributes = {:field_format => 'string', :default_value => 'production', :is_filter => true}
-      @environment_field.save(false)
+      @environment_field.save(:validate=> false)
     end
     
     @version_field = IssueCustomField.find_or_initialize_by_name('Version')
     if @version_field.new_record?
       @version_field.attributes = {:field_format => 'string', :default_value => '', :is_filter => true}
-      @version_field.save(false)
+      @version_field.save(:validate=> false)
     end
   end
 end

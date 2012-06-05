@@ -1,3 +1,3 @@
-ActionController::Routing::Routes.draw do |map|
-  map.connect '/notifier_api/v2/notices/', :controller => 'airbrake', :action => 'index', :conditions => { :method => :post }
+RedmineApp::Application.routes.draw do
+  post '/notifier_api/v2/notices/', :controller => 'airbrake', :action => 'index'
 end
